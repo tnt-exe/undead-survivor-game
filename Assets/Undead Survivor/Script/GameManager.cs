@@ -3,6 +3,11 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+
+    public float gameTime;
+    public float maxGameTime = 2 * 10f;
+
+    public PoolManager pool;
     public Player player;
 
     void Awake()
@@ -13,15 +18,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    //// Start is called before the first frame update
-    //void Start()
-    //{
+    void Update()
+    {
+        gameTime += Time.deltaTime;
 
-    //}
-
-    //// Update is called once per frame
-    //void Update()
-    //{
-
-    //}
+        if (gameTime > maxGameTime)
+        {
+            gameTime = maxGameTime;
+        }
+    }
 }

@@ -66,7 +66,7 @@ public class Player : MonoBehaviour
             }
 
             anim.SetTrigger("Dead");
-            GameManager.instance.isLive = false;
+            GameManager.instance.GameOver();
         }
     }
 }

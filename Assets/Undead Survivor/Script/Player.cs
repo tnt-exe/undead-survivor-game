@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     SpriteRenderer spriter;
     Animator anim;
 
-    void Awake() 
+    void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
         spriter = GetComponent<SpriteRenderer>();

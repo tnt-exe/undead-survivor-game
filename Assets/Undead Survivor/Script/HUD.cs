@@ -5,14 +5,14 @@ public class HUD : MonoBehaviour
 {
     public enum InfoType { Exp, Level, Kill, Time, Health }
     public InfoType type;
-    
+
     Text myText;
     Slider mySlider;
 
     void Awake()
     {
-        myText = GetComponent<Text>();    
-        mySlider = GetComponent<Slider>();    
+        myText = GetComponent<Text>();
+        mySlider = GetComponent<Slider>();
     }
 
     void LateUpdate()

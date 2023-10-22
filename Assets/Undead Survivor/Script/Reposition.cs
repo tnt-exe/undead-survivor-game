@@ -41,7 +41,7 @@ public class Reposition : MonoBehaviour
                 if (coll.enabled)
                 {
                     transform.Translate(
-                        playerDirection * 20 + 
+                        playerDirection * 20 +
                         new Vector3(Random.Range(-3f, 3f), Random.Range(-3f, 3f), 0f)
                         );
                 }

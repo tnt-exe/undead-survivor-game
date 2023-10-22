@@ -19,7 +19,7 @@ public class PoolManager : MonoBehaviour
     public GameObject Get(int index)
     {
         GameObject select = null;
-        
+
         foreach (GameObject item in pools[index])
         {
             if (!item.activeSelf)

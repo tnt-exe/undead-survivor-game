@@ -16,7 +16,7 @@ public class Bullet : MonoBehaviour
     {
         this.damage = damage;
         this.per = per;
-        
+
         if (per > -1)
         {
             rigid.velocity = direction * 15f;

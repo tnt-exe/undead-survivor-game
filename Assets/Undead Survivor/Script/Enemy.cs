@@ -71,7 +71,7 @@ public class Enemy : MonoBehaviour
 
         health -= collision.GetComponent<Bullet>().damage;
         StartCoroutine(KnockBack());
-         
+
         if (health > 0)
         {
             anim.SetTrigger("Hit");

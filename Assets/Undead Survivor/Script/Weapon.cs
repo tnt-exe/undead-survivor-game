@@ -46,6 +46,11 @@ public class Weapon : MonoBehaviour
                 break;
         }
 
+        //hand set
+        Hand hand = player.hands[(int)data.itemType];
+        hand.spriter.sprite = data.hand;
+        hand.gameObject.SetActive(true);
+
         player.BroadcastMessage("ApplyGear", SendMessageOptions.DontRequireReceiver);
     }
 

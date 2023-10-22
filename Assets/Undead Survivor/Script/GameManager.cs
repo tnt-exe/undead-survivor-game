@@ -30,11 +30,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void Start()
+    public void GameStart()
     {
         health = maxHealth;
+        isLive = true;
 
-        //temp script
+        //default weapon
         uiLevelUp.Select(0);
     }
 

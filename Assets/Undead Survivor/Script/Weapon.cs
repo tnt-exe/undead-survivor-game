@@ -109,12 +109,6 @@ public class Weapon : MonoBehaviour
                 }
                 break;
         }
-
-        // test
-        if (Input.GetButtonDown("Jump"))
-        {
-            LevelUp(10, 1);
-        }
     }
 
     void Fire()

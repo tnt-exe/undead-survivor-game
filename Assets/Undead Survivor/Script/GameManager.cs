@@ -45,6 +45,9 @@ public class GameManager : MonoBehaviour
         //default weapon
         uiLevelUp.Select(playerId % 2);
         Resume();
+
+        AudioManager.instance.PlayBgm(true);
+        AudioManager.instance.PlaySfx(AudioManager.Sfx.Select);
     }
 
     public void GameOver()
@@ -59,6 +62,9 @@ public class GameManager : MonoBehaviour
         uiGameResult.gameObject.SetActive(true);
         uiGameResult.Lose();
         Pause();
+
+        AudioManager.instance.PlayBgm(false);
+        AudioManager.instance.PlaySfx(AudioManager.Sfx.Lose);
     }
 
     public void GameEnd()
@@ -75,6 +81,9 @@ public class GameManager : MonoBehaviour
         uiGameResult.gameObject.SetActive(true);
         uiGameResult.Win();
         Pause();
+
+        AudioManager.instance.PlayBgm(false);
+        AudioManager.instance.PlaySfx(AudioManager.Sfx.Win);
     }
 
     public void GameRetry()

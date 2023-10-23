@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
     public Scanner scanner;
     public float speed;
     public Hand[] hands;
+    public RuntimeAnimatorController[] animCon;
 
     Rigidbody2D rigid;
     SpriteRenderer spriter;
@@ -27,6 +28,12 @@ public class Player : MonoBehaviour
 
         inputVec.x = Input.GetAxisRaw("Horizontal");
         inputVec.y = Input.GetAxisRaw("Vertical");
+    }
+
+    void OnEnable()
+    {
+        speed *= Character.Speed;
+        anim.runtimeAnimatorController = animCon[GameManager.instance.playerId];
     }
 
     void FixedUpdate()

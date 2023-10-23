@@ -5374,6 +5374,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 253108185}
+  - component: {fileID: 253108186}
   m_Layer: 5
   m_Name: HUD
   m_TagString: Untagged
@@ -5406,6 +5407,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &253108186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 253108184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00ecd94bc322d9d45879574e2d9739ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGamePause: 0
+  isCleanerOn: 0
+  isPlayerDead: 0
 --- !u!1 &267396309
 GameObject:
   m_ObjectHideFlags: 0
@@ -5435,8 +5451,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc77b37213b0a3645ab1b3367ee41181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bgmClip: {fileID: 8300000, guid: e3f022490464cb74d87a9f63116f955e, type: 3}
-  bgmVolume: 0.7
+  bgmClip: {fileID: 8300000, guid: 4044100d85effe645a1a41d9cb0d6133, type: 3}
+  bgmVolume: 0.1
   sfxClips:
   - {fileID: 8300000, guid: 291608b8d286e2a4580ff36324455ce2, type: 3}
   - {fileID: 8300000, guid: 0bddcb411d826e14bb26d40ae45d8e22, type: 3}
@@ -5448,7 +5464,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 6f0c572d865b4664db7a460972bc4768, type: 3}
   - {fileID: 8300000, guid: 4b294d59d2399014daa718b35c9de73b, type: 3}
   - {fileID: 8300000, guid: 2c4bc183a5df5aa4baf7c4fcf236a2de, type: 3}
-  sfxVolume: 0.5
+  sfxVolume: 0.15
   channels: 16
 --- !u!4 &267396311
 Transform:
@@ -10746,14 +10762,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLive: 0
   gameTime: 0
-  maxGameTime: 20
+  maxGameTime: 300
   playerId: 0
   health: 0
   maxHealth: 100
   level: 0
   kill: 0
   exp: 0
-  nextExp: 0100000002000000030000000400000005000000060000000700000008000000090000000a000000
+  nextExp: 03000000050000000a0000006400000096000000d20000001801000068010000c201000058020000
   pool: {fileID: 1351675043}
   player: {fileID: 1188853421}
   uiLevelUp: {fileID: 866313361}
@@ -24484,6 +24500,7 @@ MonoBehaviour:
     spawnTime: 0.2
     health: 15
     speed: 2.4
+  levelTime: 0
 --- !u!1 &1813722462
 GameObject:
   m_ObjectHideFlags: 0

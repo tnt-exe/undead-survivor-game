@@ -11,6 +11,14 @@ public class LevelUp : MonoBehaviour
         items = GetComponentsInChildren<Item>(true);
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Hide();
+        }
+    }
+
     public void Show()
     {
         Next();

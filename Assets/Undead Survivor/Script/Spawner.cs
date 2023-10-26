@@ -68,4 +68,6 @@ public class SpawnData
     public float spawnTime;
     public int health;
     public float speed;
+    public int mass;
+    public int damage;
 }

@@ -25558,22 +25558,32 @@ MonoBehaviour:
     spawnTime: 0.7
     health: 10
     speed: 2
+    mass: 1
+    damage: 10
   - spriteType: 1
     spawnTime: 0.7
     health: 15
     speed: 2.5
+    mass: 1
+    damage: 10
   - spriteType: 2
     spawnTime: 0.5
     health: 30
     speed: 3
+    mass: 20
+    damage: 15
   - spriteType: 3
     spawnTime: 0.3
     health: 40
     speed: 4
+    mass: 25
+    damage: 20
   - spriteType: 4
     spawnTime: 0.2
     health: 55
     speed: 5
+    mass: 30
+    damage: 25
   levelTime: 0
   uiEnemyNotice: {fileID: 455917402}
 --- !u!1 &1813722462

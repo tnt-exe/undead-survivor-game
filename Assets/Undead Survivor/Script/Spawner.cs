@@ -16,7 +16,7 @@ public class Spawner : MonoBehaviour
     void Awake()
     {
         spawnPoint = GetComponentsInChildren<Transform>();
-        levelTime = GameManager.instance.maxGameTime / (spawnData.Length * 1.5f);
+        levelTime = GameManager.instance.maxGameTime / (spawnData.Length * 2f);
     }
 
     // Update is called once per frame
@@ -47,6 +47,7 @@ public class Spawner : MonoBehaviour
     IEnumerator EnemyNoticeRoutine()
     {
         uiEnemyNotice.gameObject.SetActive(true);
+        AudioManager.instance.PlaySfx(AudioManager.Sfx.LevelUp);
         uiEnemyNotice.transform.GetChild(enemyLevel).gameObject.SetActive(true);
 
         yield return new WaitForSecondsRealtime(5);

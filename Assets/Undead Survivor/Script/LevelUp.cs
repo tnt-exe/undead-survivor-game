@@ -13,7 +13,8 @@ public class LevelUp : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) &&
+            rect.localScale == Vector3.one)
         {
             Hide();
         }

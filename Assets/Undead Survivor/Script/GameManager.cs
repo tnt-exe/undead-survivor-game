@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     public Player player;
     public LevelUp uiLevelUp;
     public Result uiGameResult;
+    public Menu uiPauseMenu;
     public GameObject enemyCleaner;
 
     void Awake()
@@ -88,13 +89,19 @@ public class GameManager : MonoBehaviour
 
     public void GameRetry()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     void Update()
     {
         if (!isLive)
             return;
+
+        if (isLive && Input.GetKeyDown(KeyCode.Escape))
+        {
+            uiPauseMenu.Show();
+            return;
+        }
 
         gameTime += Time.deltaTime;
 

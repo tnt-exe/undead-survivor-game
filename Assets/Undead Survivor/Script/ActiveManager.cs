@@ -65,7 +65,14 @@ public class ActiveManager : MonoBehaviour
         switch (achive)
         {
             case Achive.UnlockPotato:
-                isAchive = GameManager.instance.kill >= 100;
+                if (!PlayerPrefs.HasKey("KillCount"))
+                {
+                    isAchive = GameManager.instance.kill >= 100;
+                }
+                else
+                {
+                    isAchive = PlayerPrefs.GetInt("KillCount") >= 100;
+                }
                 break;
             case Achive.UnlockBean:
                 isAchive = GameManager.instance.gameTime == GameManager.instance.maxGameTime;

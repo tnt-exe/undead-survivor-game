@@ -5819,7 +5819,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc77b37213b0a3645ab1b3367ee41181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bgmClip: {fileID: 8300000, guid: 4044100d85effe645a1a41d9cb0d6133, type: 3}
+  bgmClip:
+  - {fileID: 8300000, guid: 4044100d85effe645a1a41d9cb0d6133, type: 3}
+  - {fileID: 8300000, guid: b1555ce6f41b1bd4f949e4c977e25a6b, type: 3}
   bgmVolume: 0.1
   sfxClips:
   - {fileID: 8300000, guid: 291608b8d286e2a4580ff36324455ce2, type: 3}
@@ -11595,6 +11597,7 @@ MonoBehaviour:
   isLive: 0
   gameTime: 0
   maxGameTime: 300
+  gameMode: 0
   playerId: 0
   health: 0
   maxHealth: 100

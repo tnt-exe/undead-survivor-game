@@ -5612,7 +5612,7 @@ GameObject:
   - component: {fileID: 252277426}
   - component: {fileID: 252277425}
   m_Layer: 5
-  m_Name: Settings
+  m_Name: Restart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5682,7 +5682,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 252277426}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 568039275}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: GameRetry
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &252277426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13443,7 +13455,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Settings
+  m_Text: Restart
 --- !u!222 &969528429
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -27667,7 +27679,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 8.333333
+  orthographic size: 13.388889
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

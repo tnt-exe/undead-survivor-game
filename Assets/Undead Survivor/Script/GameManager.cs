@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     [Header("# Game Control")]
     public bool isLive;
     public float gameTime;
-    public float maxGameTime = 2 * 10f;
+    public float maxGameTime;
 
     [Header("# Player info")]
     public int playerId;
@@ -42,6 +42,8 @@ public class GameManager : MonoBehaviour
         playerId = id;
         health = maxHealth;
 
+        maxGameTime = (Menu.gameMode == 0) ? 300 : 90;
+
         player.gameObject.SetActive(true);
 
         //default weapon
@@ -67,6 +69,11 @@ public class GameManager : MonoBehaviour
 
         AudioManager.instance.PlayBgm(false);
         AudioManager.instance.PlaySfx(AudioManager.Sfx.Lose);
+    }
+
+    public void Revive()
+    {
+
     }
 
     public void GameEnd()
@@ -124,6 +131,10 @@ public class GameManager : MonoBehaviour
         {
             level++;
             exp = 0;
+
+            if (Menu.gameMode == 1)
+                return;
+
             uiLevelUp.Show();
         }
     }

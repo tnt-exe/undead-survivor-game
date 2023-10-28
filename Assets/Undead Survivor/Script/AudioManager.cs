@@ -5,7 +5,7 @@ public class AudioManager : MonoBehaviour
     public static AudioManager instance;
 
     [Header("# BGM")]
-    public AudioClip bgmClip;
+    public AudioClip[] bgmClip;
     public float bgmVolume;
     AudioSource bgmPlayer;
     AudioHighPassFilter bgmFilter;
@@ -37,7 +37,7 @@ public class AudioManager : MonoBehaviour
         bgmPlayer.playOnAwake = false;
         bgmPlayer.loop = true;
         bgmPlayer.volume = bgmVolume;
-        bgmPlayer.clip = bgmClip;
+        bgmPlayer.clip = (Menu.gameMode == 0) ? bgmClip[0] : bgmClip[1];
         bgmFilter = Camera.main.GetComponent<AudioHighPassFilter>();
 
         //sfx

@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class Menu : MonoBehaviour
 {
     public GameObject menu;
+    public static int gameMode;
 
     public void Show()
     {
@@ -21,8 +22,9 @@ public class Menu : MonoBehaviour
         AudioManager.instance.FilterBgm(false);
     }
 
-    public void PlayGame()
+    public void PlayGame(int mode)
     {
+        gameMode = mode;
         SceneManager.LoadScene(1);
     }
 
@@ -36,6 +38,8 @@ public class Menu : MonoBehaviour
 
     public void BackToMain()
     {
+        AudioManager.instance.PlaySfx(AudioManager.Sfx.Select);
+        AudioManager.instance.FilterBgm(false);
         SceneManager.LoadScene(0);
     }
 

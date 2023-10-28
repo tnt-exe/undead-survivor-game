@@ -11597,7 +11597,6 @@ MonoBehaviour:
   isLive: 0
   gameTime: 0
   maxGameTime: 300
-  gameMode: 0
   playerId: 0
   health: 0
   maxHealth: 100
@@ -26654,30 +26653,35 @@ MonoBehaviour:
     speed: 2
     mass: 1
     damage: 10
+    expDrop: 1
   - spriteType: 1
     spawnTime: 0.7
     health: 15
     speed: 2.5
     mass: 1
     damage: 10
+    expDrop: 2
   - spriteType: 2
     spawnTime: 0.5
     health: 30
     speed: 3
     mass: 20
     damage: 15
+    expDrop: 3
   - spriteType: 3
     spawnTime: 0.3
     health: 40
     speed: 4
     mass: 25
     damage: 20
+    expDrop: 4
   - spriteType: 4
     spawnTime: 0.2
     health: 55
     speed: 5
     mass: 30
     damage: 25
+    expDrop: 5
   levelTime: 0
   uiEnemyNotice: {fileID: 455917402}
 --- !u!1 &1802916282

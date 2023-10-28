@@ -71,4 +71,5 @@ public class SpawnData
     public float speed;
     public int mass;
     public int damage;
+    public int expDrop;
 }

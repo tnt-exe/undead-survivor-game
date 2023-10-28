@@ -120,21 +120,30 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void GetExp()
+    public void GetExp(int expDrop)
     {
         if (!isLive)
             return;
 
-        exp++;
+        exp += expDrop;
 
-        if (exp == nextExp[Mathf.Min(level, nextExp.Length - 1)])
+        int lvCheck = level; 
+
+        for (int index = level; index < nextExp.Length; index++)
         {
-            level++;
-            exp = 0;
+            if (exp >= nextExp[index])
+            {
+                level = index + 1;
+                exp -= nextExp[index];
+            }
+            else
+            {
+                break;
+            }
+        }
 
-            if (Menu.gameMode == 1)
-                return;
-
+        if (lvCheck != level && Menu.gameMode == 0)
+        {
             uiLevelUp.Show();
         }
     }

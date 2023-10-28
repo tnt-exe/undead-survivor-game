@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     public float health;
     public float maxHealth;
     public int damage;
+    public int expDrop;
     public RuntimeAnimatorController[] animatorController;
     public Rigidbody2D target;
 
@@ -71,6 +72,7 @@ public class Enemy : MonoBehaviour
         health = data.health;
         damage = data.damage;
         rigid.mass = data.mass;
+        expDrop = data.expDrop;
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -94,7 +96,7 @@ public class Enemy : MonoBehaviour
             spriter.sortingOrder = 1;
             anim.SetBool("Dead", true);
             GameManager.instance.kill++;
-            GameManager.instance.GetExp();
+            GameManager.instance.GetExp(expDrop);
 
             if (GameManager.instance.isLive)
                 AudioManager.instance.PlaySfx(AudioManager.Sfx.Dead);

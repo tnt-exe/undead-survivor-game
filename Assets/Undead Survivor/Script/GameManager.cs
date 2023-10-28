@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     public int level;
     public int kill;
     public int exp;
-    public int[] nextExp = { 3, 5, 10, 100, 150, 210, 280, 360, 450, 600 };
+    public int[] nextExp = { 3, 7, 15, 30, 50, 80, 120, 170, 230, 300 };
 
     [Header("# Game Object")]
     public PoolManager pool;

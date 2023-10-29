@@ -18,7 +18,7 @@ public class Spawner : MonoBehaviour
         spawnPoint = GetComponentsInChildren<Transform>();
         levelTime = (Menu.gameMode == 0) ?
             GameManager.instance.maxGameTime / (spawnData.Length * 2f) :
-            GameManager.instance.maxGameTime / (spawnData.Length * 0.8f);
+            GameManager.instance.maxGameTime / (spawnData.Length * 0.9f);
     }
 
     // Update is called once per frame

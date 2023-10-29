@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     public Result uiGameResult;
     public Menu uiPauseMenu;
     public GameObject enemyCleaner;
+    public GameObject uiHUD;
 
     void Awake()
     {
@@ -64,6 +65,7 @@ public class GameManager : MonoBehaviour
     IEnumerator GameOverRoutine()
     {
         isLive = false;
+        uiHUD.SetActive(false);
         yield return new WaitForSeconds(0.5f);
         uiGameResult.gameObject.SetActive(true);
         uiGameResult.Lose();
@@ -83,6 +85,7 @@ public class GameManager : MonoBehaviour
         isLive = false;
         enemyCleaner.SetActive(true);
 
+        uiHUD.SetActive(false);
         yield return new WaitForSeconds(0.5f);
         uiGameResult.gameObject.SetActive(true);
         uiGameResult.Win();

@@ -5901,7 +5901,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 253108185}
-  - component: {fileID: 253108186}
   m_Layer: 5
   m_Name: HUD
   m_TagString: Untagged
@@ -5934,21 +5933,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &253108186
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 253108184}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00ecd94bc322d9d45879574e2d9739ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isGamePause: 0
-  isCleanerOn: 0
-  isPlayerDead: 0
 --- !u!1 &267396309
 GameObject:
   m_ObjectHideFlags: 0
@@ -12203,6 +12187,7 @@ MonoBehaviour:
   uiGameResult: {fileID: 1849724704}
   uiPauseMenu: {fileID: 1464084451}
   enemyCleaner: {fileID: 2114255946}
+  uiHUD: {fileID: 253108184}
 --- !u!4 &568039276
 Transform:
   m_ObjectHideFlags: 0

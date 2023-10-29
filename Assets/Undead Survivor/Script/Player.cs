@@ -2,11 +2,14 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public static Player instance;
+
     public Vector2 inputVec;
     public Scanner scanner;
     public float speed;
     public Hand[] hands;
     public RuntimeAnimatorController[] animCon;
+    public Menu uiRevive;
 
     Rigidbody2D rigid;
     SpriteRenderer spriter;
@@ -14,6 +17,10 @@ public class Player : MonoBehaviour
 
     void Awake()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
         rigid = GetComponent<Rigidbody2D>();
         spriter = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
@@ -58,6 +65,24 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void Dead()
+    {
+        for (int index = 2; index < transform.childCount; index++)
+        {
+            transform.GetChild(index).gameObject.SetActive(false);
+        }
+
+        anim.SetTrigger("Dead");
+        GameManager.instance.GameOver();
+    }
+
+    public void Revive()
+    {
+        GameManager.instance.health = GameManager.instance.maxHealth;
+        GameManager.instance.reviveTime--;
+        GameManager.instance.Resume();
+    }
+
     void OnCollisionStay2D(Collision2D collision)
     {
         if (!GameManager.instance.isLive)
@@ -69,13 +94,14 @@ public class Player : MonoBehaviour
 
         if (GameManager.instance.health <= 0)
         {
-            for (int index = 2; index < transform.childCount; index++)
+            if (Menu.gameMode == 1 && GameManager.instance.reviveTime > 0)
             {
-                transform.GetChild(index).gameObject.SetActive(false);
+                GameManager.instance.Pause();
+                uiRevive.Show();
+                return;
             }
 
-            anim.SetTrigger("Dead");
-            GameManager.instance.GameOver();
+            Dead();
         }
     }
 }

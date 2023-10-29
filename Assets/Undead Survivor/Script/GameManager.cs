@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public int kill;
     public int exp;
     public int[] nextExp = { 3, 7, 15, 30, 50, 80, 120, 170, 230, 300 };
+    public int reviveTime;
 
     [Header("# Game Object")]
     public PoolManager pool;
@@ -35,6 +36,7 @@ public class GameManager : MonoBehaviour
             instance = this;
         }
         Application.targetFrameRate = 60;
+        if (Menu.gameMode == 1) reviveTime = 3;
     }
 
     public void GameStart(int id)
@@ -69,11 +71,6 @@ public class GameManager : MonoBehaviour
 
         AudioManager.instance.PlayBgm(false);
         AudioManager.instance.PlaySfx(AudioManager.Sfx.Lose);
-    }
-
-    public void Revive()
-    {
-
     }
 
     public void GameEnd()
@@ -127,7 +124,7 @@ public class GameManager : MonoBehaviour
 
         exp += expDrop;
 
-        int lvCheck = level; 
+        int lvCheck = level;
 
         for (int index = level; index < nextExp.Length; index++)
         {

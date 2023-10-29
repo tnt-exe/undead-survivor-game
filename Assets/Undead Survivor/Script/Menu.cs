@@ -1,14 +1,24 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Menu : MonoBehaviour
 {
     public GameObject menu;
     public static int gameMode;
 
+    [Header("Revive")]
+    public GameObject reviveCount;
+
     public void Show()
     {
         menu.gameObject.SetActive(true);
+
+        if (reviveCount != null)
+        {
+            reviveCount.GetComponent<Text>().text = string.Format("{0} left", GameManager.instance.reviveTime);
+        }
+
         GameManager.instance.Pause();
         AudioManager.instance.PlaySfx(AudioManager.Sfx.Select);
         AudioManager.instance.FilterBgm(true);
@@ -34,6 +44,17 @@ public class Menu : MonoBehaviour
         GameManager.instance.Resume();
         AudioManager.instance.PlaySfx(AudioManager.Sfx.Select);
         AudioManager.instance.FilterBgm(false);
+    }
+
+    public void Revive(bool isRevive)
+    {
+        Hide();
+        if (isRevive)
+        {
+            Player.instance.Revive();
+            return;
+        }
+        Player.instance.Dead();
     }
 
     public void BackToMain()

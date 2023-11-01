@@ -8,6 +8,7 @@ TagManager:
   - Area
   - Enemy
   - Bullet
+  - Farmer
   layers:
   - Default
   - TransparentFX

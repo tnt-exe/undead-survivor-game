@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class HUD : MonoBehaviour
 {
-    public enum InfoType { Exp, Level, Kill, Time, Health }
+    public enum InfoType { Exp, Level, Kill, Time, Health, BombTimeout }
     public InfoType type;
 
     Text myText;
@@ -41,6 +41,11 @@ public class HUD : MonoBehaviour
                 float currentHealth = GameManager.instance.health;
                 float maxHealth = GameManager.instance.maxHealth;
                 mySlider.value = currentHealth / maxHealth;
+                break;
+            case InfoType.BombTimeout:
+                float Timeout = GameManager.instance.bombTimeout;
+                float remainingTime = GameManager.instance.bombTimer;
+                mySlider.value = remainingTime / Timeout;
                 break;
         }
     }

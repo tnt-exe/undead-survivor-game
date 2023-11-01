@@ -10,6 +10,10 @@ public class GameManager : MonoBehaviour
     public bool isLive;
     public float gameTime;
     public float maxGameTime;
+    public float bombSpawnInterval;
+    public bool isSpawningBombs = false;
+    public float bombTimeout = 10;
+    public float bombTimer;
 
     [Header("# Player info")]
     public int playerId;
@@ -24,6 +28,7 @@ public class GameManager : MonoBehaviour
     [Header("# Game Object")]
     public PoolManager pool;
     public Player player;
+    public Bomb bomb;
     public LevelUp uiLevelUp;
     public Result uiGameResult;
     public Menu uiPauseMenu;
@@ -46,6 +51,7 @@ public class GameManager : MonoBehaviour
         health = maxHealth;
 
         maxGameTime = (Menu.gameMode == 0) ? 300 : 90;
+        bombSpawnInterval = maxGameTime / (Menu.gameMode == 0 ? 10 : 4.5f);
 
         player.gameObject.SetActive(true);
 
@@ -105,6 +111,21 @@ public class GameManager : MonoBehaviour
         if (!isLive)
             return;
 
+        if (!isSpawningBombs)
+        {
+            StartCoroutine(SpawnBombs());
+        }
+
+        if (bomb.gameObject.activeSelf)
+        {
+            bombTimer -= Time.unscaledDeltaTime;
+            if (bombTimer <= 1)
+            {
+                bomb.gameObject.SetActive(false);
+                isSpawningBombs = false;
+            }
+        }
+
         if (isLive && Input.GetKeyDown(KeyCode.Escape))
         {
             uiPauseMenu.Show();
@@ -118,6 +139,14 @@ public class GameManager : MonoBehaviour
             gameTime = maxGameTime;
             GameEnd();
         }
+    }
+
+    IEnumerator SpawnBombs()
+    {
+        isSpawningBombs = true;
+        yield return new WaitForSeconds(bombSpawnInterval);
+        bombTimer = bombTimeout;
+        bomb.SpawnBomb();
     }
 
     public void GetExp(int expDrop)

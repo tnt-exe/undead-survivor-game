@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class LevelUp : MonoBehaviour
@@ -22,7 +23,13 @@ public class LevelUp : MonoBehaviour
 
     public void Show()
     {
+        StartCoroutine(ShowRoutine());
+    }
+
+    IEnumerator ShowRoutine()
+    {
         Next();
+        yield return new WaitForSecondsRealtime(0.1f);
         rect.localScale = Vector3.one;
         GameManager.instance.Pause();
         AudioManager.instance.PlaySfx(AudioManager.Sfx.LevelUp);
